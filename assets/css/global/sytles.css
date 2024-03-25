@@ -1,0 +1,190 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  box-sizing: border-box;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+:root {
+  --Very-Dark-Gray: hsl(0, 0%, 17%);
+  --Dark-Gray: hsl(0, 0%, 59%);
+}
+
+body,
+html {
+  width: 100%;
+  height: 100%;
+  font-family: "Rubik", sans-serif;
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+.container header {
+  display: flex;
+  width: 100%;
+  height: 260px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  position: relative;
+  padding-top: 20px;
+  gap: 30px;
+}
+.container header .title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+.container header .title h2 {
+  font-size: 30px;
+  color: #ffffff;
+}
+.container header .search-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.container header .search-wrapper .input-wrapper {
+  width: 30%;
+  height: 40px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+.container header .search-wrapper .input-wrapper input {
+  width: 100%;
+  height: 100%;
+  border: none;
+  outline: none;
+  overflow: hidden;
+  font-size: 13px;
+  padding-left: 20px;
+}
+.container header .search-wrapper .input-wrapper img {
+  cursor: pointer;
+  width: 40px;
+  height: 100%;
+  padding: 15px;
+  background-color: var(--Very-Dark-Gray);
+}
+.container header .header-background {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+.container header .header-background img {
+  width: 100%;
+  height: 100%;
+  inset: 0;
+}
+.container .info {
+  position: relative;
+  z-index: 1000;
+}
+.container .info .burak {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: -moz-fit-content;
+  width: fit-content;
+  height: 150px;
+  background-color: white;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+}
+.container .info .burak .info {
+  width: 200px;
+  height: 60px;
+  padding: 0 30px 0 20px;
+  border-right: 1px solid var(--Dark-Gray);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 10px;
+}
+.container .info .burak .info h4 {
+  font-size: 12px;
+}
+.container .info .burak .info p {
+  font-size: 18px;
+  font-weight: bold;
+}
+.container .info .burak .info:last-child {
+  border-right: none;
+}
+.container main {
+  display: flex;
+  width: 100%;
+  height: 70%;
+}
+.container main #map {
+  width: 100%;
+  height: 100%;
+}/*# sourceMappingURL=sytles.css.map */
