@@ -1,0 +1,90 @@
+header {
+    display: flex;
+    width: 100%;
+    height: 260px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    position: relative;
+    padding-top: 20px;
+    gap: 30px;
+
+    .title {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+
+        h2 {
+            font-size: 30px;
+            color: #ffffff;
+        }
+    }
+
+    .search-wrapper {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .input-wrapper {
+            width: 30%;
+            height: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            form {
+                width: 100%;
+                height: 100%;
+                border-radius: 10px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                overflow: hidden;
+                input {
+                    width: 100%;
+                    height: 100%;
+                    border: none;
+                    outline: none;
+                    overflow: hidden;
+                    font-size: 13px;
+                    padding-left: 20px;
+                }
+
+                button {
+                    width: 40px;
+                    height: 40px;
+                    border: none;
+                    outline: none;
+                    cursor: pointer;
+                    background-color: var(--Very-Dark-Gray);
+                    
+                    img {
+                        width: 100%;
+                        height: 100%;
+                        padding: 13px 8px;
+                    }
+                }
+            }
+        }
+    }
+
+    .header-background {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+
+        img {
+            width: 100%;
+            height: 100%;
+            inset: 0;
+        }
+    }
+
+
+}

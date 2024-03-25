@@ -1,0 +1,43 @@
+.info-wrapper {
+    position: relative;
+    z-index: 1000;
+
+    .map-info {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: fit-content;
+        height: fit-content;
+        background-color: white;
+        border-radius: 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 25px;
+
+        .info {
+            width: 200px;
+            height: 70px;
+            padding: 0 30px 0 20px;
+            border-right: 1px solid var(--Dark-Gray);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: flex-start;
+            gap: 10px;
+
+            h4 {
+                font-size: 12px;
+            }
+
+            span {
+                font-size: 18px;
+                font-weight: bold;
+            }
+            &:last-child {
+                border-right: none;
+            }
+        }
+    }
+}

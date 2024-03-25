@@ -24,31 +24,35 @@
         </div>
         <div class="search-wrapper">
           <div class="input-wrapper">
-            <input
-              type="text"
-              placeholder="Search for any IP address or domain"
-            />
-            <img src="./assets/images/icon-arrow.svg" alt="arrow" />
+            <form class="js-form">
+              <input
+                class="js-form-input"
+                type="text"
+                placeholder="Search for any IP address or domain"/>
+              <button class="js-form-submit">
+                <img src="./assets/images/icon-arrow.svg" alt="arrow" />
+              </button>
+            </form>
           </div>
         </div>
       </header>
-      <div class="info">
-        <div class="burak">
-          <div class="ip-adress info">
+      <div class="info-wrapper">
+        <div class="map-info js-map-info">
+          <div class="info">
             <h4>IP Address</h4>
-            <p>192.212.174.101</p>
+            <span class="js-ip-adress">192.212.174.101</span>
           </div>
-          <div class="location info">
+          <div class="info">
             <h4>Location</h4>
-            <p>Ayancık,Sinop 10001</p>
+            <span class="js-location">Ayancık,Sinop 10001</span>
           </div>
-          <div class="timezone info">
+          <div class="info">
             <h4>Timezone</h4>
-            <p>UTC - 05:00</p>
+            <span class="js-utc">UTC - 05:00</s>
           </div>
-          <div class="isp info">
+          <div class="info">
             <h4>ISP</h4>
-            <p>SpaceX Starlink</p>
+            <span class="js-isp">SpaceX Starlink</span>
           </div>
         </div>
       </div>
@@ -58,9 +62,6 @@
         </div>
       </main>
     </div>
-    <!-- <p>   
-    add offset value dynamically using the API
-    </p> -->
     <script type="module" src="./js/app.js"></script>
   </body>
 </html>
