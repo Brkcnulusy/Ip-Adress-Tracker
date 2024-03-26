@@ -56,7 +56,7 @@ table {
 header {
   display: flex;
   width: 100%;
-  height: 260px;
+  height: 320px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -82,11 +82,16 @@ header .search-wrapper {
   align-items: center;
 }
 header .search-wrapper .input-wrapper {
-  width: 30%;
+  width: 500px;
   height: 40px;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+@media (max-width: 900px) {
+  header .search-wrapper .input-wrapper {
+    width: 300px;
+  }
 }
 header .search-wrapper .input-wrapper form {
   width: 100%;
@@ -153,6 +158,15 @@ header .header-background img {
   align-items: center;
   padding: 25px;
 }
+@media (max-width: 900px) {
+  .info-wrapper .map-info {
+    padding: 20px 0;
+    width: 300px;
+    height: 260px;
+    flex-direction: column;
+    gap: 10px;
+  }
+}
 .info-wrapper .map-info .info {
   width: 200px;
   height: 70px;
@@ -164,8 +178,18 @@ header .header-background img {
   align-items: flex-start;
   gap: 10px;
 }
+@media (max-width: 900px) {
+  .info-wrapper .map-info .info {
+    width: 100%;
+    height: -moz-fit-content;
+    height: fit-content;
+    border: none;
+    align-items: center;
+  }
+}
 .info-wrapper .map-info .info h4 {
   font-size: 12px;
+  color: var(--Dark-Gray);
 }
 .info-wrapper .map-info .info span {
   font-size: 18px;
@@ -198,7 +222,7 @@ html {
 .container header {
   display: flex;
   width: 100%;
-  height: 260px;
+  height: 320px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
