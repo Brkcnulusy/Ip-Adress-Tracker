@@ -1,113 +1,96 @@
-# Frontend Mentor - IP address tracker solution
+# Ip Adresi Izleyici
+- Bu projede amacım kullanıcının ip adresini alıp, aldığımız ip adresi ile apiye istek atıp, kullanıcının enlem ve boylamını buluyordum. Sonra bu bulduğum enlem ve boylamı haritada zoom yapıp bir dalış noktası yaratıyordum. Bunu yapmıştım fakat entropi sırrı açığa çıktığı için bundan vazgeçtim ve rastgele bir ip adresine istek atıp ordaki konum bilgilerini zoom yaptım. Sayfa içerisindeki arama butonuna kendinizin veya başkasının ip adresini girerek, girdiğiniz ip adresinin işaret ettiği konumu görebilirsiniz.
 
-This is a solution to the [IP address tracker challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/ip-address-tracker-I8-0yYAH0). Frontend Mentor challenges help you improve your coding skills by building realistic projects. 
+### Ekran Görüntüsü
 
-## Table of contents
-
-- [Overview](#overview)
-  - [The challenge](#the-challenge)
-  - [Screenshot](#screenshot)
-  - [Links](#links)
-- [My process](#my-process)
-  - [Built with](#built-with)
-  - [What I learned](#what-i-learned)
-  - [Continued development](#continued-development)
-  - [Useful resources](#useful-resources)
-- [Author](#author)
-- [Acknowledgments](#acknowledgments)
-
-**Note: Delete this note and update the table of contents based on what sections you keep.**
-
-## Overview
-
-### The challenge
-
-Users should be able to:
-
-- View the optimal layout for each page depending on their device's screen size
-- See hover states for all interactive elements on the page
-- See their own IP address on the map on the initial page load
-- Search for any IP addresses or domains and see the key information and location
-
-### Screenshot
-
-![](./screenshot.jpg)
-
-Add a screenshot of your solution. The easiest way to do this is to use Firefox to view your project, right-click the page and select "Take a Screenshot". You can choose either a full-height screenshot or a cropped one based on how long the page is. If it's very long, it might be best to crop it.
-
-Alternatively, you can use a tool like [FireShot](https://getfireshot.com/) to take the screenshot. FireShot has a free option, so you don't need to purchase it. 
-
-Then crop/optimize/edit your image however you like, add it to your project, and update the file path in the image above.
-
-**Note: Delete this note and the paragraphs above when you add your screenshot. If you prefer not to add a screenshot, feel free to remove this entire section.**
+![Ekran Görüntüsü](./assets/images/Ekran%20Alıntısı.PNG)
 
 ### Links
+- Site Url'i: [Ip-Address-Tracker](https://ip-adress-tracker-507osrce0-burak-can-s-projects.vercel.app/)
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+### Meydan okuma
 
-## My process
+Kullanıcılar şunları yapabilmelidir:
 
-### Built with
+- Cihazlarının ekran boyutuna bağlı olarak her sayfa için en uygun düzeni görüntüleyebilmeli
+- Sayfadaki tüm etkileşimli öğeler için fareyle üzerine gelme durumlarını görün
+- İlk sayfa yüklemesinde harita üzerinde kendi IP adreslerini görmeleri
+- Herhangi bir IP adresini veya etki alanını arayın ve anahtar bilgileri ve konumu görün.
 
-- Semantic HTML5 markup
-- CSS custom properties
-- Flexbox
-- CSS Grid
-- Mobile-first workflow
-- [React](https://reactjs.org/) - JS library
-- [Next.js](https://nextjs.org/) - React framework
-- [Styled Components](https://styled-components.com/) - For styles
+### Genel Bakış
+- Javascript kodları ifee fonksiyonları içine yazılmıştır. Sonrada ekleme yada geliştirme yapacak kişiler dikkat etmelidir.
+- Responsive tasarımı mevcut olup farklı cihazlarda da görüntü bozulmamaktadır.
+- Css kodları scss şeklinde yazılmıştır. Ekleme yada geliştirme yapacak kişi style.scss dosyasını compile etmelidir.
+- Js ve CSS kodları modüler olarak yazılmıştır.
 
-**Note: These are just examples. Delete this note and replace the list above with your own choices**
+### Ne Öğrendim
 
-### What I learned
+- Daha önce hiç harita kullanmamıştım. Bu uygulamada leaflet.js kütüphanesi ile harita yaptım ve bir dalış noktası ekledim.
 
-Use this section to recap over some of your major learnings while working through this project. Writing these out and providing code samples of areas you want to highlight is a great way to reinforce your own knowledge.
-
-To see how you can add code snippets, see below:
-
-```html
-<h1>Some HTML code I'm proud of</h1>
-```
-```css
-.proud-of-this-css {
-  color: papayawhip;
-}
-```
 ```js
-const proudOfThisFunc = () => {
-  console.log('🎉')
-}
+ const _createMap = function (latitude, longitude) {
+    const mapElement = document.getElementById('map');
+    
+    // First check if the map object already exists
+    if (window.mapInstance) {
+        window.mapInstance.remove(); // Remove previous map
+    }
+
+    // Create the new map object
+    window.mapInstance = L.map(mapElement).setView(
+        [latitude, longitude],
+        13
+    );
+
+    L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+        attribution:
+            '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+    }).addTo(window.mapInstance);
+
+    _createDivingPoint(window.mapInstance, latitude, longitude);
+};
+
+const _createDivingPoint = function (map, latitude, longitude) {
+    // Use a marker to add dive points
+    const diveMarker = L.marker([latitude, longitude]).addTo(
+      map
+    );
+    diveMarker.bindPopup("<b>Dalış Noktası</b><br>İşte burası!");
+  };
 ```
 
-If you want more help with writing markdown, we'd recommend checking out [The Markdown Guide](https://www.markdownguide.org/) to learn more.
 
-**Note: Delete this note and the content within this section and replace with your own learnings.**
+### İle İnşa Edilmiştir
 
-### Continued development
+- HTML5
+- CSS
+- Flexbox
+- SCSS
+- Mobil Tasarım 
+- JavaScript
 
-Use this section to outline areas that you want to continue focusing on in future projects. These could be concepts you're still not completely comfortable with or techniques you found useful that you want to refine and perfect.
+## Kurulum
 
-**Note: Delete this note and the content within this section and replace with your own plans for continued development.**
+1. Projeyi Kopyalayın
+İlk olarak, projeyi yerel bilgisayarınıza kopyalamk için GitHub'dan klonlayın:
+```bash
+git clone https://github.com/Brkcnulusy/Ip-Adress-Tracker
+cd Ip-Adress-Tracker
+```
+2. Bağımlılıkları Yükleyin
+Herhangi bir Bağlılığı bulunmamaktır. Projece vanilya.js ile yazılmıştır.
 
-### Useful resources
+3. Uygulamayı Çalıştırın
+Eğer Live Server uzantısı yüklü ise html dosyasına sağ tıklayıp ilk seçenek olan Live Server ile Açın seçeneğine tıklayıp açabilirsiniz.
+Live Server uzantısına sahip değilseniz terminale npm run dev yazarak ve Tarayıcınızda http://localhost:3000 adresine giderek uygulamayı kullanmaya başlayabilirsiniz.
 
-- [Example resource 1](https://www.example.com) - This helped me for XYZ reason. I really liked this pattern and will use it going forward.
-- [Example resource 2](https://www.example.com) - This is an amazing article which helped me finally understand XYZ. I'd recommend it to anyone still learning this concept.
+## Yazar
 
-**Note: Delete this note and replace the list above with resources that helped you during the challenge. These could come in handy for anyone viewing your solution or for yourself when you look back on this project in the future.**
+- Website - [Burak Can Ulusoy](https://mavifloravakfi.com/)
+- LinkedIn - [@Brkcnulusy](https://www.linkedin.com/in/burak-can-ulusoy-375120272/)
+- GitHub - [@Burakcnulusy](https://github.com/Brkcnulusy/)
+- E-Mail - [brkcnulusy@gmail.com] 
 
-## Author
+## Teşekkür
 
-- Website - [Add your name here](https://www.your-site.com)
-- Frontend Mentor - [@yourusername](https://www.frontendmentor.io/profile/yourusername)
-- Twitter - [@yourusername](https://www.twitter.com/yourusername)
-
-**Note: Delete this note and add/remove/edit lines above based on what links you'd like to share.**
-
-## Acknowledgments
-
-This is where you can give a hat tip to anyone who helped you out on this project. Perhaps you worked in a team or got some inspiration from someone else's solution. This is the perfect place to give them some credit.
-
-**Note: Delete this note and edit this section's content as necessary. If you completed this challenge by yourself, feel free to delete this section entirely.**
+Bu projeyi frontend mentor adlı sitede gördüm ve yapmaya karar verdim. Site proje için gerekli olan tasarım resimleri ve sitede kullanmam gereken image dosyalarını benimle paylaştı. Frontend Mentor Ekibine teşekkür ederim.
